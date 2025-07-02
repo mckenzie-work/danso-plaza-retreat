@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Danso Plaza Design System - Premium Minimal Guesthouse */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Premium Monochrome Palette */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Navy as primary */
+    --primary: 220 40% 25%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft charcoal as secondary */
+    --secondary: 220 10% 85%;
+    --secondary-foreground: 220 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 220 5% 92%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Soft gold accent */
+    --accent: 45 35% 85%;
+    --accent-foreground: 220 40% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 5% 88%;
+    --input: 220 5% 95%;
+    --ring: 220 40% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium Gold Variants */
+    --gold: 45 60% 70%;
+    --gold-foreground: 220 40% 25%;
+    
+    /* Smooth Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-elegant: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Elegant Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(220 40% 25% / 0.1);
+    --shadow-gold: 0 5px 20px -5px hsl(45 60% 70% / 0.2);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +115,46 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-grotesk;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Premium button variants */
+  .btn-premium {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:shadow-elegant hover:scale-105;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-primary text-primary px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-gold-foreground px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:shadow-gold hover:scale-105;
+  }
+
+  /* Elegant animations */
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .parallax {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
   }
 }
